@@ -35,6 +35,22 @@ test.004.noNameMeansRoot <- function() {
   checkIdentical(rootLogger1, rootLogger2)
 }
 
+test.500.basicConfigSetsLevelOfHandler <- function() {
+  logReset()
+  basicConfig('DEBUG')
+  rootLogger <- getLogger('')
+  expect <- logging:::loglevels['DEBUG']
+  current <- rootLogger$getHandler('basic.stdout')[['level']]
+  checkEquals(current, expect)
+  logReset()
+  basicConfig('ERROR')
+  rootLogger <- getLogger('')  ## needed, because `logReset` unlinked the old one
+  expect <- logging:::loglevels['ERROR']
+  current <- rootLogger$getHandler('basic.stdout')[['level']]
+  checkEquals(current, expect)
+  logReset()
+}
+
 # end of functions that must be tested first
 
 test.canFindLoggingLevels <- function() {
@@ -124,7 +140,7 @@ test.recordIsEmitted.deepToRoot.DI.dropped <- function() {
   logReset()
   addHandler(mockAction, level='DEBUG', logger='')
   logged <<- NULL
-  setLevel('other.branch', 'INFO')
+  setLevel('INFO', 'other.branch')
   logdebug('test', logger='other.branch')
   loginfo('test', logger='other.branch')
   logerror('test', logger='other.branch')

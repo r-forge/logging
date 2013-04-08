@@ -1,6 +1,6 @@
 Package: logging.handlers
-Version: 0.7-102
-Date: 2011-04-27
+Version: 0.7-103
+Date: 2013-04-08
 Title: extra logging handlers
 Author: Mario Frasca <mariotomo@gmail.com>
 Maintainer: Mario Frasca <mariotomo@gmail.com>

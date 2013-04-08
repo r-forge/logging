@@ -1,10 +1,10 @@
 Package: logging
-Version: 0.7-102
-Date: 2010-06-17
+Version: 0.7-103
+Date: 2013-04-08
 Title: R logging package
 Author: Mario Frasca <mariotomo@gmail.com>
 Maintainer: Mario Frasca <mariotomo@gmail.com>
 Description: logging is a pure R package that implements the ubiquitous log4j package.
 License: GPL (>=2)
 Depends: R (>= 2.12.0), methods
-Suggests: svUnit
+Suggests: svUnit, XML

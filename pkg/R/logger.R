@@ -104,7 +104,7 @@ getLogger <- function(name='', ...)
 basicConfig <- function(level=20) {
   rootLogger <- getLogger()
   updateOptions(rootLogger, level=namedLevel(level))
-  rootLogger$addHandler('basic.stdout', writeToConsole)
+  rootLogger$addHandler('basic.stdout', writeToConsole, level=namedLevel(level))
   invisible()
 }
 
